@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+
+
 const UserSchema = new mongoose.Schema({
     
     name: { type: String, required: true },
@@ -10,7 +12,7 @@ const UserSchema = new mongoose.Schema({
     timestamps: true
 })
 
-const UserModel = mongoose.models.User || mongoose.model("User", UserSchema)
+const UserModel = mongoose.models?.User || mongoose.model('User', UserSchema)
 export default UserModel
 
 export type User = {
@@ -18,5 +20,6 @@ export type User = {
     name: string
     email: string
     password: string
-    isAdmin: boolean
+    isAdmin: boolean;
+
 }

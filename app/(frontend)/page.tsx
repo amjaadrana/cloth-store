@@ -1,4 +1,4 @@
-import ProductItem from "@/components/prouduts/ProductItem";
+import ProductItem from "@/components/produts/ProductItem";
 import productService from "@/lib/services/productService";
 import Image from "next/image";
 import Link from "next/link";

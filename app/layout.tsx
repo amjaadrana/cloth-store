@@ -1,20 +1,25 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 import Providers from "@/components/Providers";
+import DrawerButton from "@/components/DrawerButton";
+import Sidebar from "@/components/Sidebar";
+
+const inter = Inter({ subsets: ['latin'] })
 
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,13 +33,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+       <body className={inter.className}>
         <Providers>
-
-        <Header />
-        {children}
+          <div className="drawer">
+            <DrawerButton />
+            <div className="drawer-content">
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                {children}
+                <footer className="footer footer-center p-4 bg-base-300 text-base-content">
+                  <p>
+                    Copyright © 2023 - All right reserved by Next Amazona V2
+                  </p>
+                </footer>
+              </div>
+            </div>
+            <div className="drawer-side">
+              <label
+                htmlFor="my-drawer"
+                aria-label="close sidebar"
+                className="drawer-overlay"
+              ></label>
+              <Sidebar />
+            </div>
+          </div>
         </Providers>
       </body>
     </html>

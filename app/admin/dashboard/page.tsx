@@ -1,15 +1,15 @@
 import AdminLayout from '@/components/admin/AdminLayout'
-   import Dashboard from './Dashboard'
+import Dashboard from './Dashboard'
 
-   export const metadata = {
-     title: 'Admin Dashboard',
-   }
-   const DashbaordPage = () => {
-     return (
-       <AdminLayout activeItem="dashboard">
-         <Dashboard />
-       </AdminLayout>
-     )
-   }
+export const metadata = {
+  title: 'Admin Dashboard',
+}
+const DashbaordPage = () => {
+  return (
+    <AdminLayout activeItem="dashboard">
+      <Dashboard />
+    </AdminLayout>
+  )
+}
 
-   export default DashbaordPage
+export default DashbaordPage

@@ -2,7 +2,6 @@ import mongoose from 'mongoose'
 
 const productSchema = new mongoose.Schema(
   {
-   
     name: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
     category: { type: String, required: true },
@@ -27,7 +26,7 @@ const ProductModel =
 export default ProductModel
 
 export type Product = {
-  _id: string
+  _id?: string
   name: string
   slug: string
   image: string
@@ -42,4 +41,3 @@ export type Product = {
   colors?: []
   sizes?: []
 }
-

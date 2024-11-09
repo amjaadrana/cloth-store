@@ -31,4 +31,3 @@ export default function ProductItem({ product }: { product: Product }) {
     </div>
   )
 }
-

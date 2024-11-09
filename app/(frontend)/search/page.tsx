@@ -1,5 +1,5 @@
-import ProductItem from '@/components/produts/ProductItem'
-import { Rating } from '@/components/produts/Rating'
+import ProductItem from '@/components/products/ProductItem'
+import { Rating } from '@/components/products/Rating'
 import productServices from '@/lib/services/productService'
 import Link from 'next/link'
 

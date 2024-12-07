@@ -9,8 +9,8 @@ import Header from '@/components/header/Header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Next Amazona V2',
-  description: 'Modern ECommerce Website',
+  title:process.env.NEXT_PUBLIC_APP_NAME || 'Amjaad Rana,s Store',
+  description: process.env.NEXT_PUBLIC_APP_DESC || 'Modern ECommerce Website',
 }
 
 export default function RootLayout({

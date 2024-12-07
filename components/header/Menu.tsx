@@ -6,6 +6,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { SearchBox } from './SearchBox'
+import {ShoppingCart, UserIcon} from 'lucide-react'
 
 const Menu = () => {
   const { items, init } = useCartService()
@@ -66,6 +67,7 @@ const Menu = () => {
           </i>
           <li>
             <Link className="btn btn-ghost rounded-btn" href="/cart">
+            <ShoppingCart />
               Cart
               {mounted && items.length != 0 && (
                 <div className="badge badge-secondary">
@@ -80,7 +82,8 @@ const Menu = () => {
                 <div className="dropdown dropdown-bottom dropdown-end">
                   <label tabIndex={0} className="btn btn-ghost rounded-btn">
                     {session.user.name}
-                    <svg
+                    <UserIcon className='text-green-500'/>
+                    {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -93,7 +96,7 @@ const Menu = () => {
                         strokeLinejoin="round"
                         d="M19.5 8.25l-7.5 7.5-7.5-7.5"
                       />
-                    </svg>
+                    </svg> */}
                   </label>
                   <ul
                     tabIndex={0}

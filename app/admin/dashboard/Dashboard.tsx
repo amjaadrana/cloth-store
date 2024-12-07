@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { Bar, Doughnut, Line } from 'react-chartjs-2'
 import useSWR from 'swr'
 import { formatNumber } from '@/lib/utils'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,6 +18,9 @@ import {
   BarElement,
   ArcElement,
 } from 'chart.js'
+
+// import data from '@/lib/data'
+// import { set } from 'mongoose'
 
 ChartJS.register(
   CategoryScale,
@@ -41,9 +46,27 @@ export const options = {
 
 const Dashboard = () => {
   const { data: summary, error } = useSWR(`/api/admin/orders/summary`)
-
+  console.log(summary)
   if (error) return error.message
   if (!summary) return 'Loading...'
+
+
+// const [summary, setSummary] = useState();
+  
+
+
+// useEffect(() => {
+//   async function fetchSummary() {
+//     const data = await fetch('http://localhost:3000/api/admin/orders/summary');
+//     setSummary(await data.json());
+//   }
+  
+//   fetchSummary();
+// }, [])
+
+// console.log("summary", summary)
+
+
 
   const salesData = {
     labels: summary.salesData.map((x: { _id: string }) => x._id),
@@ -59,6 +82,7 @@ const Dashboard = () => {
       },
     ],
   }
+  
   const ordersData = {
     labels: summary.salesData.map((x: { _id: string }) => x._id),
     datasets: [

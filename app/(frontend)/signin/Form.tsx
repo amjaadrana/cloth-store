@@ -40,6 +40,10 @@ const Form = () => {
       email,
       password,
     })
+    
+  }
+  const handleGoogleSignin = () =>{
+    signIn('google', {callbackUrl})
   }
   return (
     <div className="max-w-sm  mx-auto card bg-base-300 my-4">
@@ -102,6 +106,15 @@ const Form = () => {
                 <span className="loading loading-spinner"></span>
               )}
               Sign in
+            </button>
+          </div>
+          <div>
+            <button 
+            type='button'
+            onClick={handleGoogleSignin}
+            className='btn btn-secondary w-full'
+            >
+              Sign in with Google
             </button>
           </div>
         </form>

@@ -10,12 +10,16 @@ const calcPrices = (orderItems: OrderItem[]) => {
     orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   )
   // Calculate the shipping price
-  const shippingPrice = round2(itemsPrice > 100 ? 0 : 10)
+  const shippingPrice = round2(itemsPrice > 5000 ? 0 : 200)
   // Calculate the tax price
-  const taxPrice = round2(Number((0.15 * itemsPrice).toFixed(2)))
+  // const taxPrice = round2(Number((0.15 * itemsPrice).toFixed(2)))
   // Calculate the total price
-  const totalPrice = round2(itemsPrice + shippingPrice + taxPrice)
-  return { itemsPrice, shippingPrice, taxPrice, totalPrice }
+  const totalPrice = round2(itemsPrice + shippingPrice
+    //  + taxPrice
+    )
+  return { itemsPrice, shippingPrice,
+    //  taxPrice,
+      totalPrice }
 }
 
 export const POST = auth(async (req: any) => {
@@ -44,13 +48,15 @@ export const POST = auth(async (req: any) => {
       _id: undefined,
     }))
 
-    const { itemsPrice, taxPrice, shippingPrice, totalPrice } =
+    const { itemsPrice, 
+      // taxPrice, 
+      shippingPrice, totalPrice } =
       calcPrices(dbOrderItems)
 
     const newOrder = new OrderModel({
       items: dbOrderItems,
       itemsPrice,
-      taxPrice,
+      // taxPrice,
       shippingPrice,
       totalPrice,
       shippingAddress: payload.shippingAddress,

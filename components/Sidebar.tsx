@@ -18,7 +18,9 @@ const Sidebar = () => {
       </li>
       {categories.map((category: string) => (
         <li key={category}>
-          <Link href={`/search?category=${category}`} onClick={toggleDrawer}>
+          <Link href={`/search?category=${category}`}
+           onClick={toggleDrawer}
+           >
             {category}
           </Link>
         </li>

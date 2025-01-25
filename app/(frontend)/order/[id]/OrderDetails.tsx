@@ -32,7 +32,7 @@ export default function OrderDetails({
   )
 
   const { data: session } = useSession()
-  console.log(session)
+  // console.log(session)
   function createPayPalOrder() {
     return fetch(`/api/orders/${orderId}/create-paypal-order`, {
       method: 'POST',
@@ -68,7 +68,7 @@ export default function OrderDetails({
     shippingAddress,
     items,
     itemsPrice,
-    taxPrice,
+    // taxPrice,
     shippingPrice,
     totalPrice,
     isDelivered,
@@ -161,12 +161,12 @@ export default function OrderDetails({
                     <div>${itemsPrice}</div>
                   </div>
                 </li>
-                <li>
+                {/* <li>
                   <div className="mb-2 flex justify-between">
                     <div>Tax</div>
                     <div>${taxPrice}</div>
                   </div>
-                </li>
+                </li> */}
                 <li>
                   <div className="mb-2 flex justify-between">
                     <div>Shipping</div>

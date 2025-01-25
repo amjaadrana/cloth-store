@@ -43,7 +43,9 @@ export default function ClientProviders({
         },
       }}
     >
-      <div data-theme={selectedTheme}>
+      <div 
+      data-theme={selectedTheme}
+      >
         <Toaster toastOptions={{ className: 'toaster-con' }} />
         {children}
       </div>

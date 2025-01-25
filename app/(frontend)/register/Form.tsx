@@ -1,5 +1,5 @@
 'use client'
-import { useSession } from 'next-auth/react'
+import { useSession, signIn } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
@@ -69,12 +69,17 @@ const Form = () => {
       toast.error(error || 'error')
     }
   }
+
+  const handleGoogleSignin = async () => {
+    signIn('google', { callbackUrl })
+  }
+
   return (
     <div className="max-w-sm  mx-auto card bg-base-300 my-4">
       <div className="card-body">
         <h1 className="card-title">Register</h1>
         <form onSubmit={handleSubmit(formSubmit)}>
-          <div className="my-2">
+          <div className="my-2">            
             <label className="label" htmlFor="name">
               Name
             </label>
@@ -158,8 +163,18 @@ const Form = () => {
               Register
             </button>
           </div>
-        </form>
-
+          <div className="my-2">
+            <button
+              type="button"
+              onClick={handleGoogleSignin}
+              className="btn btn-secondary w-full"
+            >
+              Sign in with Google
+            </button>
+          </div>
+        </form>       
+          
+       </div>
         <div className="divider"> </div>
         <div>
           Already have an account?{' '}
@@ -168,7 +183,7 @@ const Form = () => {
           </Link>
         </div>
       </div>
-    </div>
+    
   )
 }
 

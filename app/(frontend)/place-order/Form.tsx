@@ -15,7 +15,7 @@ const Form = () => {
     shippingAddress,
     items,
     itemsPrice,
-    taxPrice,
+    // taxPrice,
     shippingPrice,
     totalPrice,
     clear,
@@ -34,7 +34,7 @@ const Form = () => {
           shippingAddress,
           items,
           itemsPrice,
-          taxPrice,
+          // taxPrice,
           shippingPrice,
           totalPrice,
         }),
@@ -133,7 +133,7 @@ const Form = () => {
                       <td>
                         <span>{item.qty}</span>
                       </td>
-                      <td>${item.price}</td>
+                      <td>RS{item.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -158,22 +158,22 @@ const Form = () => {
                     <div>${itemsPrice}</div>
                   </div>
                 </li>
-                <li>
+                {/* <li>
                   <div className=" flex justify-between">
                     <div>Tax</div>
                     <div>${taxPrice}</div>
-                  </div>
-                </li>
+                  </div> 
+                </li> */}
                 <li>
                   <div className=" flex justify-between">
                     <div>Shipping</div>
-                    <div>${shippingPrice}</div>
+                    <div>RS{shippingPrice}</div>
                   </div>
                 </li>
                 <li>
                   <div className=" flex justify-between">
                     <div>Total</div>
-                    <div>${totalPrice}</div>
+                    <div>RS{totalPrice}</div>
                   </div>
                 </li>
 

@@ -3,9 +3,16 @@ import bcrypt from 'bcryptjs'
 import dbConnect from './dbConnect'
 import UserModel from './models/UserModel'
 import NextAuth from 'next-auth'
+import GoogleProvider from "next-auth/providers/google";
+import Providers from '@/components/Providers'
 
 export const config = {
-  providers: [
+  providers: [   
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    }),
+       
     CredentialsProvider({
       credentials: {
         email: {
@@ -63,7 +70,11 @@ export const config = {
       return session
     },
   },
-}
+};
+/*
+const handler = NextAuth(config);
+export { handler as GET, handler as POST };
+*/
 
 export const {
   handlers: { GET, POST },

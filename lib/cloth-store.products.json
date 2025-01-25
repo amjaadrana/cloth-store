@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "672f927048c4f1a7e0c2a5b5"
+  },
+  "name": "Free Shirt",
+  "slug": "free-shirt",
+  "category": "Shirts",
+  "image": "https://res.cloudinary.com/ddivhbtmz/image/upload/v1737010762/oi8hbokgqmt8aot6xt0o.jpg",
+  "price": 70,
+  "brand": "Nike",
+  "rating": 4.5,
+  "numReviews": 8,
+  "countInStock": 20,
+  "description": "A popular shirt",
+  "isFeatured": true,
+  "banner": "/images/banner1.jpg",
+  "updatedAt": {
+    "$date": "2025-01-16T06:59:42.726Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "672f927048c4f1a7e0c2a5b6"
+  },
+  "name": "Fit Shirt",
+  "slug": "fit-shirt",
+  "category": "Shirts",
+  "image": "/images/shirt2.jpg",
+  "price": 80,
+  "brand": "Adidas",
+  "rating": 3.2,
+  "numReviews": 10,
+  "countInStock": 20,
+  "description": "A popular shirt",
+  "isFeatured": true,
+  "banner": "/images/banner2.jpg"
+},
+{
+  "_id": {
+    "$oid": "672f927048c4f1a7e0c2a5b7"
+  },
+  "name": "Slim Shirt",
+  "slug": "slim-shirt",
+  "category": "Shirts",
+  "image": "/images/shirt3.jpg",
+  "price": 90,
+  "brand": "Raymond",
+  "rating": 4.5,
+  "numReviews": 3,
+  "countInStock": 20,
+  "description": "A popular shirt"
+},
+{
+  "_id": {
+    "$oid": "672f927048c4f1a7e0c2a5b8"
+  },
+  "name": "Golf Pants",
+  "slug": "golf-pants",
+  "category": "Pants",
+  "image": "/images/pants1.jpg",
+  "price": 90,
+  "brand": "Oliver",
+  "rating": 2.9,
+  "numReviews": 13,
+  "countInStock": 20,
+  "description": "Smart looking pants"
+},
+{
+  "_id": {
+    "$oid": "672f927048c4f1a7e0c2a5b9"
+  },
+  "name": "Fit Pants",
+  "slug": "fit-pants",
+  "category": "Pants",
+  "image": "/images/pants2.jpg",
+  "price": 95,
+  "brand": "Zara",
+  "rating": 3.5,
+  "numReviews": 7,
+  "countInStock": 20,
+  "description": "A popular pants"
+},
+{
+  "_id": {
+    "$oid": "672f927048c4f1a7e0c2a5ba"
+  },
+  "name": "Classic Pants",
+  "slug": "classic-pants",
+  "category": "Pants",
+  "image": "/images/pants3.jpg",
+  "price": 75,
+  "brand": "Casely",
+  "rating": 2.4,
+  "numReviews": 14,
+  "countInStock": 20,
+  "description": "A popular pants"
+},
+{
+  "_id": {
+    "$oid": "678894db092bf29862bcd157"
+  },
+  "name": "sample name",
+  "slug": "sample-name-0.08952772573651568",
+  "category": "sample category",
+  "image": "/images/shirt1.jpg",
+  "price": 0,
+  "brand": "sample brand",
+  "rating": 0,
+  "numReviews": 0,
+  "countInStock": 0,
+  "description": "sample description",
+  "isFeatured": false,
+  "createdAt": {
+    "$date": "2025-01-16T05:10:51.810Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-16T05:10:51.810Z"
+  },
+  "__v": 0
+}]

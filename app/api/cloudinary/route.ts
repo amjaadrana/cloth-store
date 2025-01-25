@@ -1,7 +1,6 @@
 import {auth} from '@/lib/auth'
 import cloudinary from 'cloudinary'
 
-
 export const POST = auth(async (req: any) => {
     if (!req.auth || !req.auth.user?.isAdmin) {
         return Response.json(

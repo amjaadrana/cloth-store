@@ -6,7 +6,7 @@ import { persist } from 'zustand/middleware'
 type Cart = {
   items: OrderItem[]
   itemsPrice: number
-  taxPrice: number
+  // taxPrice: number
   shippingPrice: number
   totalPrice: number
 
@@ -16,7 +16,7 @@ type Cart = {
 const initialState: Cart = {
   items: [],
   itemsPrice: 0,
-  taxPrice: 0,
+  // taxPrice: 0,
   shippingPrice: 0,
   totalPrice: 0,
   paymentMethod: 'PayPal',
@@ -39,7 +39,7 @@ export default function useCartService() {
   const {
     items,
     itemsPrice,
-    taxPrice,
+    // taxPrice,
     shippingPrice,
     totalPrice,
     paymentMethod,
@@ -48,7 +48,7 @@ export default function useCartService() {
   return {
     items,
     itemsPrice,
-    taxPrice,
+    // taxPrice,
     shippingPrice,
     totalPrice,
     paymentMethod,
@@ -60,13 +60,15 @@ export default function useCartService() {
             x.slug === item.slug ? { ...exist, qty: exist.qty + 1 } : x
           )
         : [...items, { ...item, qty: 1 }]
-      const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
+      const { itemsPrice, shippingPrice,
+        //  taxPrice, 
+         totalPrice } =
         calcPrice(updatedCartItems)
       cartStore.setState({
         items: updatedCartItems,
         itemsPrice,
         shippingPrice,
-        taxPrice,
+        // taxPrice,
         totalPrice,
       })
     },
@@ -77,13 +79,15 @@ export default function useCartService() {
         exist.qty === 1
           ? items.filter((x: OrderItem) => x.slug !== item.slug)
           : items.map((x) => (item.slug ? { ...exist, qty: exist.qty - 1 } : x))
-      const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
+      const { itemsPrice, shippingPrice,
+        //  taxPrice, 
+         totalPrice } =
         calcPrice(updatedCartItems)
       cartStore.setState({
         items: updatedCartItems,
         itemsPrice,
         shippingPrice,
-        taxPrice,
+        // taxPrice,
         totalPrice,
       })
     },
@@ -110,8 +114,12 @@ const calcPrice = (items: OrderItem[]) => {
   const itemsPrice = round2(
       items.reduce((acc, item) => acc + item.price * item.qty, 0)
     ),
-    shippingPrice = round2(itemsPrice > 100 ? 0 : 100),
-    taxPrice = round2(Number(0.15 * itemsPrice)),
-    totalPrice = round2(itemsPrice + shippingPrice + taxPrice)
-  return { itemsPrice, shippingPrice, taxPrice, totalPrice }
+    shippingPrice = round2(itemsPrice > 100 ? 0 : 300),
+    // taxPrice = round2(Number(0.15 * itemsPrice)),
+    totalPrice = round2(itemsPrice + shippingPrice
+      //  + taxPrice
+      )
+  return { itemsPrice, shippingPrice
+    // , taxPrice
+    , totalPrice }
 }

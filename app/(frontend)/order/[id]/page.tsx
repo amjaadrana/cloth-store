@@ -1,21 +1,22 @@
 import OrderDetails from './OrderDetails'
 import { Metadata } from 'next'
 
-export async function generateMetadata({
-  params,
-}: {
+interface Props {
   params: { id: string }
-}): Promise<Metadata> {
+  searchParams: Record<string, string | string[] | undefined>
+}
+
+export async function generateMetadata(props: Props): Promise<Metadata> {
   return {
-    title: `Order ${params.id}`,
+    title: `Order ${props.params.id}`,
   }
 }
 
-export default async function OrderPage({
-  params,
-}: {
-  params: { id: string }
-}) {
+export default async function OrderPage(props: Props) {
+  if (!props.params?.id) {
+    return <div>Invalid order ID</div>
+  }
+  
   const paypalClientId = process.env.PAYPAL_CLIENT_ID || 'sb'
-  return <OrderDetails orderId={params.id} paypalClientId={paypalClientId} />
+  return <OrderDetails orderId={props.params.id} paypalClientId={paypalClientId} />
 }

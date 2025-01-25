@@ -44,18 +44,16 @@ export default function OrderDetails({
       .then((order) => order.id)
   }
 
-  function onApprovePayPalOrder(data: any) {
-    return fetch(`/api/orders/${orderId}/capture-paypal-order`, {
+  async function onApprovePayPalOrder(data: any) {
+    const response = await fetch(`/api/orders/${orderId}/capture-paypal-order`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((orderData) => {
-        toast.success('Order paid successfully')
-      })
+    const orderData = await response.json()
+    toast.success('Order paid successfully')
   }
 
   const { data, error } = useSWR(`/api/orders/${orderId}`)
